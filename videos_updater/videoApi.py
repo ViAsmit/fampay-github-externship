@@ -24,21 +24,25 @@ def youtube_search():
     search_response = youtube.search().list(
         q="pubg",
         part='id,snippet',
-        maxResults=10
+        maxResults=5,
+        type='video'
     ).execute()
 
     videos = []
 
     # Add each result to the appropriate list, and then display the lists of
     # matching videos, channels, and playlists.
-    print(search_response)
-    # for search_result in search_response.get('items', []):
-    #     print(search_result)
-    #     if search_result['id']['kind'] == 'youtube#video':
-    #         videos.append('%s (%s)' % (search_result['snippet']['title'],
-    #                                    search_result['id']['videoId']))
-
-    # print('Videos:\n', '\n'.join(videos), '\n')
+    for search_result in search_response.get('items', []):
+        if search_result['id']['kind'] == 'youtube#video':
+            video = Video()
+            video.title = search_result['snippet']['title']
+            video.description = search_result['snippet']['description']
+            video.video_key = search_result['id']['videoId']
+            video.published_date = search_result['snippet']['publishedAt']
+            video.thumbnail_url = search_result['snippet']['thumbnails']['default']['url']
+            video.video_url = 'https://www.youtube.com/watch?v=' + video.video_key
+            video.save()
+            print("saving new video...\n", video.title)
 
 
 def update_forecast():
@@ -47,7 +51,6 @@ def update_forecast():
     except HttpError as e:
         print('An HTTP error %d occurred:\n%s' % (e.resp.status, e.content))
     print("yipeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
-    # json = _get_forecast_json()
     # if json is not None:
     #     try:
     #         new_forecast = Video()

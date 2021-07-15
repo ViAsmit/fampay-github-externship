@@ -5,10 +5,18 @@ from videos.models import Video
 from .serializers import VideoSerializer
 
 
-def calling():
-    print("yyy")
-
-
-class VideoList(generics.ListCreateAPIView):
+class VideoList(generics.ListAPIView):
     queryset = Video.objects.all()
     serializer_class = VideoSerializer
+
+
+class SearchVideoList(generics.ListAPIView):
+    serializer_class = VideoSerializer
+
+    def get_queryset(self):
+        qs = Video.objects.all()
+        query = self.request.query_params.get('q', None)
+        print(query)
+        if query is not None:
+            qs = qs.filter(title__icontains=query)
+        return qs

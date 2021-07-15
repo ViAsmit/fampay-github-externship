@@ -9,6 +9,7 @@ class Video(models.Model):
     description = models.TextField()
     video_key = models.CharField(max_length=100)
     video_url = models.URLField(null=True)
+    thumbnail_url = models.URLField(null=True)
     published_date = models.DateTimeField(blank=True, null=True)
 
     class Meta:
