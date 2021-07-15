@@ -40,6 +40,12 @@ docker run -dp 8000:8000 viasmit/docker_fampay
 
 ```
 
+## Screenshots
+
+<img src="screenshots/s1.jpg" />
+
+<img src="screenshots/s2.jpg" />
+
 ### To view all the saved video in paginated response
 
 [http://0.0.0.0:8000/api](http://0.0.0.0:8000/api)
