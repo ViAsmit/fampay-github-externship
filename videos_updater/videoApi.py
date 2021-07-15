@@ -1,6 +1,7 @@
 import requests
 from videos.models import Video
 import argparse
+from datetime import date
 
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
@@ -22,10 +23,11 @@ def youtube_search():
     # Call the search.list method to retrieve results matching the specified
     # query term.
     search_response = youtube.search().list(
-        q="pubg",
+        q="minecraft",
         part='id,snippet',
         maxResults=5,
-        type='video'
+        type='video',
+        publishedAfter=str(date.today()) + "T00:00:00Z"
     ).execute()
 
     videos = []
