@@ -46,6 +46,8 @@ docker run -dp 8000:8000 viasmit/docker_fampay
 
 <img src="screenshots/s2.jpg" />
 
+### All API ENDPINTS automatically refreshed in 30 seconds
+
 ### To view all the saved video in paginated response
 
 [http://0.0.0.0:8000/api](http://0.0.0.0:8000/api)
