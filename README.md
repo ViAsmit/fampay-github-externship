@@ -40,13 +40,7 @@ docker run -dp 8000:8000 viasmit/docker_fampay
 
 ```
 
-## Screenshots
-
-<img src="screenshots/s1.jpg" />
-
-<img src="screenshots/s2.jpg" />
-
-### All API ENDPINTS automatically refreshed in 30 seconds
+### (All API ENDPOINTS automatically refreshed in 30 seconds)
 
 ### To view all the saved video in paginated response
 
@@ -55,6 +49,12 @@ docker run -dp 8000:8000 viasmit/docker_fampay
 ### To search for the saved video in paginated response
 
 [http://0.0.0.0:8000/api/search/?q=minecraft](http://0.0.0.0:8000/api/search/?q=minecraft)
+
+## Screenshots
+
+<img src="screenshots/s1.jpg" />
+
+<img src="screenshots/s2.jpg" />
 
 ## Contributing
 
